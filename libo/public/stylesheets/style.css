@@ -1,13 +1,18 @@
 body {
   padding: 50px;
   color: pink;
+  background-color: aqua
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: green;
 }
 
 h1 {
   color: orange;
+}
+
+p {
+  color: indigo;
 }
