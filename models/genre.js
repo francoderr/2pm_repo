@@ -9,7 +9,7 @@ var GenreSchema = new Schema(
     }
 );
 
-GenreSchema.Virtual("url").get(function () {
+GenreSchema.virtual("url").get(function () {
     return '/catalog/genre/' + this._id;
 });
 
