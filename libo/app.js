@@ -10,11 +10,14 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 //Set up mongoose connection
-var mongoose = require('mongoose');
-var mongoDB = 'https://cloud.mongodb.com/v2/611f380aa5cede2a604e3254#metrics/replicaSet/611f3a7c24e8db1d148e15d0/explorer/local_library/Collection0/';
-mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+const { MongoClient } = require('mongodb');
+const uri = "mongodb+srv://korra:GT34wera@cluster0.x3nbi.mongodb.net/local_library?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
