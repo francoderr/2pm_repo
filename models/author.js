@@ -11,7 +11,7 @@ var AuthorSchema = new Schema(
 
 // Virtual for author's full name
 AuthorSchema
-.Virtual("name")
+.virtual("name")
 .get(function () {
     return this.family_name + ', ' + this.first_name;
 });
