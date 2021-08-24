@@ -11,7 +11,7 @@ var app = express();
 
 //Set up mongoose connection
 const { MongoClient } = require('mongodb');
-const uri = "mongodb+srv://korra:<GT34wera>@cluster0.x3nbi.mongodb.net/local_library?retryWrites=true&w=majority";
+const uri = "mongodb+srv://korra:GT34wera@cluster0.x3nbi.mongodb.net/local_library?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 client.connect(uri, { useNewUrlParser: true }, (err, db) => {
