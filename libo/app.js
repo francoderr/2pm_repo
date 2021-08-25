@@ -11,17 +11,23 @@ var app = express();
 
 //Set up mongoose connection
 const { MongoClient } = require('mongodb');
-const uri = "mongodb+srv://korra:GT34wera@cluster0.x3nbi.mongodb.net/local_library?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+const url = "mongodb+srv://korra:GT34wera@cluster0.kwagk.mongodb.net/cluster0";
+const client = new MongoClient(url, {useNewUrlParser: true, useUnifiedTopology: true});
 
-client.connect(uri, { useNewUrlParser: true }, (err, db) => {
-  if (err) {
-    console.log(err);
-    process.exit(0);
-  }
-  console.log("database connected!");
-  db.close();
- });
+async function run() {
+    try {
+        await client.connect();
+        console.log("Connected correctly to server");
+
+    } catch (err) {
+        console.log(err.stack);
+    }
+    finally {
+        await client.close();
+    }
+}
+
+run().catch(console.dir);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
