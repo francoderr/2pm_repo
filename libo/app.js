@@ -11,7 +11,7 @@ var app = express();
 
 //Set up mongoose connection
 const { MongoClient } = require('mongodb');
-const url = "mongodb+srv://korra:GT34wera@cluster0.kwagk.mongodb.net/cluster0";
+const url = "mongodb+srv://korra:GT34wera@cluster0.x3nbi.mongodb.net/Cluster0?retryWrites=true&w=majority";
 const client = new MongoClient(url, {useNewUrlParser: true, useUnifiedTopology: true});
 
 async function run() {
