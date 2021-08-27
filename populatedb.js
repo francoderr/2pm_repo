@@ -4,17 +4,17 @@ console.log('This script populates some test books, authors, genres and bookinst
 
 // Get arguments passed on command line
 var userArgs = process.argv.slice(2);
-
+/*
 if (!userArgs[0].startsWith('mongodb')) {
     console.log('ERROR: You need to specify a valid mongodb URL as the first argument');
     return
 }
-
+*/
 var async = require('async')
 var Book = require('./models/book')
 var Author = require('./models/author')
 var Genre = require('./models/genre')
-var BookInstance = require('./models/bookInstance')
+var BookInstance = require('./models/bookinstance')
 
 
 var mongoose = require('mongoose');
@@ -30,9 +30,9 @@ var books = []
 var bookinstances = []
 
 function authorCreate(first_name, family_name, d_birth, d_death, cb) {
-  let authordetail = {first_name:first_name , family_name: family_name }
-  if (d_birth !== false) authordetail.date_of_birth = d_birth
-  if (d_death !== false) authordetail.date_of_death = d_death
+  authordetail = {first_name:first_name , family_name: family_name }
+  if (d_birth != false) authordetail.date_of_birth = d_birth
+  if (d_death != false) authordetail.date_of_death = d_death
   
   var author = new Author(authordetail);
        
@@ -62,13 +62,13 @@ function genreCreate(name, cb) {
 }
 
 function bookCreate(title, summary, isbn, author, genre, cb) {
-  var bookdetail = { 
+  bookdetail = { 
     title: title,
     summary: summary,
     author: author,
     isbn: isbn
   }
-  if (genre !== false) bookdetail.genre = genre
+  if (genre != false) bookdetail.genre = genre
     
   var book = new Book(bookdetail);    
   book.save(function (err) {
@@ -84,12 +84,12 @@ function bookCreate(title, summary, isbn, author, genre, cb) {
 
 
 function bookInstanceCreate(book, imprint, due_back, status, cb) {
-  let bookinstancedetail = { 
+  bookinstancedetail = { 
     book: book,
     imprint: imprint
   }    
-  if (due_back !== false) bookinstancedetail.due_back = due_back
-  if (status !== false) bookinstancedetail.status = status
+  if (due_back != false) bookinstancedetail.due_back = due_back
+  if (status != false) bookinstancedetail.status = status
     
   var bookinstance = new BookInstance(bookinstancedetail);    
   bookinstance.save(function (err) {
@@ -225,4 +225,3 @@ function(err, results) {
     // All done, disconnect from database
     mongoose.connection.close();
 });
-
