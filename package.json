@@ -9,11 +9,14 @@
     "async": "^3.2.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
-    "express": "^4.16.4",
+    "express": "^4.17.1",
     "http-errors": "~1.6.3",
+    "mogodb": "^0.0.1-security",
     "mongodb": "^4.1.0",
-    "mongoose": "^5.13.7",
+    "mongoose": "^5.13.8",
     "morgan": "~1.9.1",
+    "node": "^16.6.1",
+    "npm": "^7.21.1",
     "pug": "2.0.0-beta11"
   },
   "devDependencies": {
