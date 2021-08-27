@@ -17,7 +17,7 @@ const client = new MongoClient(url, {useNewUrlParser: true, useUnifiedTopology: 
 async function run() {
     try {
         await client.connect();
-        console.log("Connected correctly to server");
+        console.log("Connected correctly to your server");
 
     } catch (err) {
         console.log(err.stack);
